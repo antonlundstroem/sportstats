@@ -1,0 +1,6 @@
+<p>this is my filter component</p>
+<ul *ngIf="leagues$ | async as leagues else noData">
+	<li *ngFor="let league of leagues">{{league.leagueName}}</li>
+</ul>
+
+
