@@ -1,0 +1,12 @@
+{
+    "/": {
+        "target": "http://env-0753233.jls-sto1.elastx.net/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/": ""
+          }
+    }
+}
+
