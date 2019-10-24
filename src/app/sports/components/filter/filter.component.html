@@ -2,3 +2,10 @@
 <ul *ngIf="leagues$ | async as leagues else noData">
 	<li *ngFor="let league of leagues">{{league.leagueName}}</li>
 </ul>
+
+
+
+<p>this is the leagues season data</p>
+<ul *ngIf="season$ | async as season else noData">
+	<li *ngFor="let data of season">{{data.seasonStartYear}}</li>
+</ul>
