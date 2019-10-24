@@ -1,11 +1,23 @@
-<p>this is my filter componentsssssss</p>
+<p>this is my filter stuff</p>
+
+<!--
 <ul *ngIf="leagues$ | async as leagues else noData">
 	<li *ngFor="let league of leagues">{{league.leagueName}}</li>
 </ul>
+-->
 
+<div class="dropdown">
+  <button class="dropbtn">Select League</button>
+  <div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
+		<a (click)="getSeasonForLeague(league)" *ngFor="let league of leagues" routerLinkActive="active">{{league.leagueName}}</a>
+  </div>
+</div> 
 
 
 <p>this is the leagues season data</p>
 <ul *ngIf="season$ | async as season else noData">
-	<li *ngFor="let data of season">{{data.seasonStartYear}}</li>
+	<li *ngFor="let data of season">{{data.seasonStartYear}}-{{data.seasonEndYear}}</li>
 </ul>
+
+
+

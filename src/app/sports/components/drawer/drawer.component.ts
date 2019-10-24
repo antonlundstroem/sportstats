@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { SportService } from '../../services/sport.service';
 import { Sport } from "../../models/sport";
 import { Observable } from 'rxjs';
