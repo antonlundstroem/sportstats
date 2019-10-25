@@ -6,8 +6,8 @@
 				<a class="fas fa-lg reftext"href="#">Dashboard</a>
 			</li>
 
-			<li (click)="onSelect(sport)" *ngFor="let sport of sports">
-				<a class="fas fa-lg reftext" routerLinkActive="active">{{sport.name}}</a>
+			<li *ngFor="let sport of sports">
+				<a class="fas fa-lg reftext" routerLink="{{sport.id}}" routerLinkActive="active">{{sport.name}}</a>
 			</li>
 		</ul>
 	</div>

@@ -1,0 +1,8 @@
+<p>league-filter works!</p>
+
+<div class="dropdown">
+  <button class="dropbtn">Leagues</button>
+  <div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
+		<a *ngFor="let league of leagues">{{league.leagueName}}</a>
+  </div>
+</div> 

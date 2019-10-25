@@ -14,6 +14,10 @@ export class SportService {
 		return this.http.get<Sport[]>('/sport/all');
 	}
 
+	getSportById(sportId:number){
+		return this.http.get<Sport>('/sport/sport_id/' + sportId);
+	}
+
 
 
 }
