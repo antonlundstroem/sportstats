@@ -1,8 +1,21 @@
-<p>league-filter works!</p>
+<ng-container
+	*ngIf="selectedLeague !== undefined then isSet else notSet">
+</ng-container>
 
-<div class="dropdown">
-  <button class="dropbtn">Leagues</button>
-  <div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
-		<a *ngFor="let league of leagues">{{league.leagueName}}</a>
-  </div>
-</div> 
+<ng-template #isSet>
+	<div class="dropdown">
+		<button class="dropbtn">{{ selectedLeague.leagueName }}</button>
+		<div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
+			<a (click)="onSelect(league)" *ngFor="let league of leagues">{{league.leagueName}}</a>
+		</div>
+	</div> 
+</ng-template>
+
+<ng-template #notSet>
+	<div class="dropdown">
+		<button class="dropbtn">Leagues</button>
+		<div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
+			<a (click)="onSelect(league)" *ngFor="let league of leagues">{{league.leagueName}}</a>
+		</div>
+	</div> 
+</ng-template>

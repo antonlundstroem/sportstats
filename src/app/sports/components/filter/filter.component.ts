@@ -1,13 +1,13 @@
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SportService } from "../../services/sport.service";
-import { LeagueService } from "../../services/league.service";
-import { SeasonService } from '../../services/season.service';
 import { Observable } from 'rxjs';
 import { League } from "../../models/league";
 import { Season } from '../../models/season';
 import { Sport } from "../../models/sport";
 import { Filter } from "../../models/filter";
+import { FilterService } from "../../services/filter.service";
+import { Team } from "../../models/team";
 
 @Component({
   selector: 'app-filter',
@@ -15,64 +15,49 @@ import { Filter } from "../../models/filter";
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-	private urlExt: number;
 	private sportId: number;
-
-  // TODO
-	// This filter is the object that should be passed into the "GameRows" component
-	// Figure out how to make changes to this object in child components via @Input() and @Output()
-	private filterSettings: Filter;
-
-	leagues$: Observable<League[]>;
-	season$: Observable<Season[]>;
+	private filter: Filter;
+	private currentLeague: League;
+	private currentSeason: Season;
+	private currentTeam: Team;
 	sport$: Observable<Sport>;
-	currentLeague: League;
 
-	// TODO
-	// Make it so when the url changes, the stuff in the filters update automatically!
-	// This is done by subscribing to the current activatedroute object!!!
-	//
-
-  constructor(private router: Router, private route: ActivatedRoute, private sportService: SportService, private ls: LeagueService, private ss: SeasonService) { }
-
-	ngOnInit() {
-
-		//	this.fillData();
-
-		const routeParams = this.route.params.subscribe(params => {
-			this.sportId = params['sportId'];
-			this.loadSportDetails(this.sportId);
-		});
-
+	constructor(private fs: FilterService, private route: ActivatedRoute, private sportService: SportService) { 
+		this.filter = new Filter();
 	}
 
-	getSeasonForLeague(league: League){
-		this.currentLeague = league;
-		this.season$ = this.ss.doRequest(league.id);
+	ngOnInit() {
+		const routeParams = this.route.params.subscribe(params => {
+			this.sportId = params['sportId'];
+
+			// Reset filter when sport changes and add new data
+			this.fs.resetFilter();
+
+			// + operator parses the string to a number
+			this.fs.setSport(+this.sportId);
+
+			this.loadSportDetails(this.sportId);
+		});
 	}
 
 	loadSportDetails(sportId: number){
 		this.sport$ = this.sportService.getSportById(sportId);
 	};
-	
-	loadLeagueDetails(seasonId:number){
-		this.season$ = this.ss.doRequest(seasonId);
-	};
-	
-	loadSeasonDetails(leagueId:number){
-		this.season$ = this.ss.doRequest(leagueId);
+		
+	handleLeagueFilter(league: League){
+		this.currentLeague = league;
+	}
+
+	handleSeasonFilter(season: Season){
+		this.currentSeason = season;
+	}
+
+	handleTeamFilter(team: Team){
+		this.currentTeam = team;
+	}
+
+	tmpFun(){
+		this.fs.printFilterInfo();
 	};
 
-	fillData(){
-		this.route.params.subscribe(params => {
-			this.urlExt = params['sportId'];
-			if (this.urlExt === undefined){
-				// add some error handling, doing this via promises or smth is better?
-			} else {
-				this.leagues$ = this.ls.doRequest(this.urlExt);
-				this.leagues$.subscribe(league => {
-				});
-			}
-		});
-	}
 }

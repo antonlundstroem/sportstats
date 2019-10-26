@@ -19,27 +19,16 @@ export class DrawerComponent implements OnInit {
 
 	ngOnInit() {
 
-		this.route.queryParams.subscribe(x => {
-			console.log('in drawercomponent qp');
-			console.log(x)
-		});
-		this.route.params.subscribe(x => {
-			console.log('in drawercomponent p');
-			console.log(x)
-		});
+		//		this.route.queryParams.subscribe(x => {
+		//			console.log('in drawercomponent qp');
+		//			console.log(x)
+		//		});
+		//		this.route.params.subscribe(x => {
+		//			console.log('in drawercomponent p');
+		//			console.log(x)
+		//		});
 
 		this.sports$ = this.ss.doRequest();
-
-		//this.setRoutingPaths();
-
-	}
-
-	setRoutingPaths(){
-		this.sports$.subscribe((items: Sport[]) => 
-			items.forEach(sport => 
-				this.sportPaths.push( {"id": sport.id, "name": sport.name} )
-			)
-		);
 	}
 
 	onSelect(sport){

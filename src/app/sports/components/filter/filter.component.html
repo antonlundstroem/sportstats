@@ -21,9 +21,27 @@
 </ul>
 -->
 
-<div>
-	<app-league-filter *ngIf="sport$ | async as sport else noData" [sport]="sport">
-	</app-league-filter>
+<div *ngIf="sport$ | async as sport else noData">
+	<div>
+		<div>
+			<span class="appdropdowns">
+				<app-league-filter [sport]="sport" (leagueUpdater)="handleLeagueFilter($event)">
+				</app-league-filter>
+			</span>
+
+			<span class="appdropdowns">
+				<app-season-filter [league]="currentLeague" (seasonUpdater)="handleSeasonFilter($event)"></app-season-filter>
+			</span>
+
+			<span class="appdropdowns">
+				<app-team-filter [league]="currentLeague" [season]="currentSeason" (teamUpdater)="handleTeamFilter($event)"></app-team-filter>
+			</span>
+	</div>
 </div>
 
+<br>
+
+<div>
+	<button (click)="tmpFun()">PRINT FILTER INFO</button>
+</div>
 
