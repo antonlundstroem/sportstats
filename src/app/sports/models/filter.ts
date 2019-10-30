@@ -42,7 +42,7 @@ export class Filter implements FilterSettings {
 	}
 
 	getTeamId():number {
-		return this.seasonId;
+		return this.teamId;
 	}
 
 	printFilterInfo(){
