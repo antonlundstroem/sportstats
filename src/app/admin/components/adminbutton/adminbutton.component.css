@@ -1,0 +1,6 @@
+.content {	
+	left: 100px;
+	top: 200px;
+	z-index: 1;
+	position:relative
+}
