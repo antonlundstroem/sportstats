@@ -9,15 +9,20 @@ import {HttpClientModule} from '@angular/common/http';
 import { SportsModule } from './sports/sports.module';
 import { SportsRoutingModule } from './sports/sports.routing';
 
+import { HeaderComponent } from './components/header/header.component';
 
 // This import and adding the stuff in 'providers' allows for refreshing without 404ing.
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
 		BrowserModule,
