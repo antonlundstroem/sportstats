@@ -1,4 +1,5 @@
 export interface Team {
-	id:number;
-	name:string;
+	id?:any;
+	name?:string;
+	seasonId?: any;
 }
