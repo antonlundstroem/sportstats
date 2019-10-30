@@ -1,0 +1,14 @@
+<p>at least renders..</p>
+<div *ngIf="games$ | async as games else noData">
+	<table>
+		<th>Date</th>
+		<th>Round</th>
+		<th>Spectators</th>
+		<tr *ngFor="let game of games">
+			<td>{{ game.date }}</td>
+			<td>{{ game.roundId }}</td>
+			<td>{{ game.spectators}}</td>
+		</tr>
+	</table>
+</div>
+

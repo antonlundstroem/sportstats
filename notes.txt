@@ -1,0 +1,6 @@
+mvc pattern to implement
+https://medium.com/better-programming/creating-angular-webapp-for-multiple-views-and-screen-sizes-50fe8a83c433
+
+
+
+

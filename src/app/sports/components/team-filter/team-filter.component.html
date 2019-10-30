@@ -1,0 +1,22 @@
+
+<ng-container 
+	*ngIf="selectedTeam !== undefined then isSet else notSet">
+</ng-container>
+
+<ng-template #isSet>
+	<div class="dropdown">
+		<button class="dropbtn">{{ selectedTeam.name }}</button>
+		<div *ngIf="teams$ | async as teams else noData" class="dropdown-content">
+			<a (click)="onSelect(team)" *ngFor="let team of teams">{{team.name}}</a>
+		</div>
+	</div> 
+</ng-template>
+
+<ng-template #notSet>
+	<div class="dropdown">
+		<button class="dropbtn">Teams</button>
+		<div *ngIf="teams$ | async as teams else noData" class="dropdown-content">
+			<a (click)="onSelect(team)" *ngFor="let team of teams">{{team.name}}</a>
+		</div>
+	</div> 
+</ng-template>

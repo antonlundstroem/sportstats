@@ -1,0 +1,15 @@
+<!-- This is the Sports module root -->
+<!-- No need to add <app-filter> tag here cause of the routing, i think -->
+
+<div class="stats-view">
+ {{ title }}
+ <app-filter></app-filter>
+
+<ng-template [ngIf]="$isGameRow | async">
+	<div>
+		<app-gamerows></app-gamerows>
+	</div>
+</ng-template>
+
+</div>
+

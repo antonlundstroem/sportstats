@@ -1,0 +1,14 @@
+<div class="nav-side-menu">
+	<div class="brand">Sportstats</div>
+	<div class=menu-list>
+		<ul *ngIf="sports$ | async as sports else noData">
+			<li class="collapsed active">
+				<a class="fas fa-lg reftext"href="#">Dashboard</a>
+			</li>
+
+			<li *ngFor="let sport of sports">
+				<a (click)="onSelect(sport)" class="fas fa-lg reftext" routerLink="/stats/{{sport.id}}" routerLinkActive="active">{{sport.name}}</a>
+			</li>
+		</ul>
+	</div>
+</div>

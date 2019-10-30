@@ -1,0 +1,46 @@
+footer {
+  bottom: 0;
+  clear: both;
+  position: relative;
+  position: fixed;
+  width: 100%;
+}
+
+footer ul.footerleft {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+footer ul.footerleft li {
+  display: inline;
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-bottom: 10px;
+  padding-right: 1px;
+  margin-top: 10px;
+}
+
+.social:hover {
+  -ms-transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+  -webkit-transition-duration: 0.5s;
+  transform: scale(1.0);
+  transition-duration: 0.5s;
+}
+
+.social {
+  color: black;
+  -ms-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}

@@ -1,0 +1,51 @@
+<p>this is my filter stuff</p>
+
+<div *ngIf="sport$ | async as sport else noData"> 
+	<p>{{sport.name}}</p>
+</div>
+<!--
+<ul *ngIf="leagues$ | async as leagues else noData">
+	<li *ngFor="let league of leagues">{{league.leagueName}}</li>
+</ul>
+
+<div class="dropdown">
+  <button class="dropbtn">Select League</button>
+  <div *ngIf="leagues$ | async as leagues else noData" class="dropdown-content">
+		<a *ngFor="let league of leagues" routerLink="{{league.id}}" routerLinkActive="active">{{league.leagueName}}</a>
+  </div>
+</div> 
+
+<p>this is the leagues season data</p>
+<ul *ngIf="season$ | async as season else noData">
+	<li *ngFor="let data of season">{{data.seasonStartYear}}-{{data.seasonEndYear}}</li>
+</ul>
+-->
+
+<div *ngIf="sport$ | async as sport else noData">
+	<div>
+		<div>
+			<span class="appdropdowns">
+				<app-league-filter [sport]="sport" (leagueUpdater)="handleLeagueFilter($event)">
+				</app-league-filter>
+			</span>
+
+			<span class="appdropdowns">
+				<app-season-filter [league]="currentLeague" (seasonUpdater)="handleSeasonFilter($event)"></app-season-filter>
+			</span>
+
+			<span class="appdropdowns">
+				<app-team-filter [league]="currentLeague" [season]="currentSeason" (teamUpdater)="handleTeamFilter($event)"></app-team-filter>
+			</span>
+
+			<span class="filterbutton">
+				<app-filterbutton></app-filterbutton>
+			</span>
+	</div>
+</div>
+
+<br>
+
+<div>
+	<button (click)="tmpFun()">PRINT FILTER INFO</button>
+</div>
+

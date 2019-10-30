@@ -63,7 +63,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sportstats:build"
+            "browserTarget": "sportstats:build",
+	    "proxyConfig": "proxy.config.json",
+	    "port": 4201
           },
           "configurations": {
             "production": {
