@@ -7,7 +7,7 @@
 			</li>
 
 			<li *ngFor="let sport of sports">
-				<a class="fas fa-lg reftext" routerLink="{{sport.id}}" routerLinkActive="active">{{sport.name}}</a>
+				<a (click)="onSelect(sport)" class="fas fa-lg reftext" routerLink="/stats/{{sport.id}}" routerLinkActive="active">{{sport.name}}</a>
 			</li>
 		</ul>
 	</div>

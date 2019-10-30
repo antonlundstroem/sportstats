@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SportService } from "../../services/sport.service";
 import { Observable } from 'rxjs';
@@ -20,6 +20,8 @@ export class FilterComponent implements OnInit {
 	private currentLeague: League;
 	private currentSeason: Season;
 	private currentTeam: Team;
+	private isGameRows: boolean;
+
 	sport$: Observable<Sport>;
 
 	constructor(private fs: FilterService, private route: ActivatedRoute, private sportService: SportService) { 

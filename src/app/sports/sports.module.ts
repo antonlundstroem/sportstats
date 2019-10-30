@@ -7,6 +7,9 @@ import { FilterComponent } from './components/filter/filter.component';
 import { LeagueFilterComponent } from './components/league-filter/league-filter.component';
 import { SeasonFilterComponent } from './components/season-filter/season-filter.component';
 import { TeamFilterComponent } from './components/team-filter/team-filter.component';
+import { GamerowsComponent } from './components/gamerows/gamerows.component';
+import { GamerowsdetailComponent } from './components/gamerowsdetail/gamerowsdetail.component';
+import { FilterbuttonComponent } from './components/filterbutton/filterbutton.component';
 
 
 
@@ -18,7 +21,10 @@ import { TeamFilterComponent } from './components/team-filter/team-filter.compon
 		FilterComponent,
 		LeagueFilterComponent,
 		SeasonFilterComponent,
-		TeamFilterComponent 
+		TeamFilterComponent,
+		GamerowsComponent,
+		GamerowsdetailComponent,
+		FilterbuttonComponent
 	],
   imports: [
 		CommonModule,

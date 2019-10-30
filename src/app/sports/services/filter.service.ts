@@ -53,7 +53,9 @@ export class FilterService {
 		this.currentFilter.subscribe(params => console.log(params));
 	}
 
-	
+	updateFilterResult(){
+
+	}
 
 
 

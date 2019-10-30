@@ -3,6 +3,7 @@ import { SportService } from '../../services/sport.service';
 import { Sport } from "../../models/sport";
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FilterbuttonService } from "../../services/filterbutton.service";
 
 
 @Component({
@@ -15,23 +16,14 @@ export class DrawerComponent implements OnInit {
 	sports$: Observable<Sport[]>;
 	sportPaths = [];
 
-  constructor(private ss: SportService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private ss: SportService, private router: Router, private route: ActivatedRoute, private fbs: FilterbuttonService) { }
 
 	ngOnInit() {
-
-		//		this.route.queryParams.subscribe(x => {
-		//			console.log('in drawercomponent qp');
-		//			console.log(x)
-		//		});
-		//		this.route.params.subscribe(x => {
-		//			console.log('in drawercomponent p');
-		//			console.log(x)
-		//		});
-
 		this.sports$ = this.ss.doRequest();
 	}
 
 	onSelect(sport){
-		this.router.navigate(['', sport.id]);
+		console.log('clicked sport in drawer');
+		this.fbs.toggle(false);
 	}
 }
