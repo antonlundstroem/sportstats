@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-left">Add Team</h1>
+    <form [formGroup]="addTeamForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" required>
+            <div *ngIf="name().invalid && (name().touched || name().dirty)" class="alert alert-danger">
+                <div *ngIf="name().errors.required">
+                    Name is required.
+                </div>
+                <div *ngIf="name().errors.minlength">
+                    Name must be at least 2 characters long.
+                </div>
+                <div *ngIf="name().errors.maxlength">
+                    Name cannot be longer than 50 characters.
+                </div>
+            </div>
+            <label for="season">Season</label>
+            <input type="number" formControlName="seasonId" class="form-control" id="season" required>
+            <div *ngIf="season().invalid && (season().touched || season().dirty)" class="alert alert-danger">
+                <div *ngIf="season().errors.required">
+                    Season is required.
+                </div>
+                <div *ngIf="season().errors.minlength">
+                    Season must be at least 2 characters long.
+                </div>
+                <div *ngIf="season().errors.maxlength">
+                    Season cannot be longer than 50 characters.
+                </div>
+            </div>
+        </div>
+        <button type="reset" class="btn btn-secondary btn-space-right">Reset</button>
+        <button [disabled]="addTeamForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

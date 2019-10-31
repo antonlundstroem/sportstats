@@ -1,14 +1,61 @@
-<p>at least renders..</p>
+<!--
+<ng-container *ngIf="teamFilterSet === true then isSet else notSet">
+</ng-container>
+
+	<ng-template #isSet>
+		<div>
+			<table>
+			<th>Home/Away</th>
+			<th>myTeam</th>
+			<th>vsTeam</th>
+			<th>Round</th>
+			<th>Date</th>
+				<tr *ngFor="let row of gameRows">
+					<td>{{ row.homeOrAway }}</td>
+					<td>{{ row.myTeamName }}</td>
+					<td>{{ row.vsTeamName }}</td>
+					<td>{{ row.round }}</td>
+					<td>{{ row.date }}</td>
+				</tr>
+			</table>
+		</div>
+	</ng-template>
+
+	<ng-template #notSet>
+		<div *ngIf="games$ | async as games else noData">
+			<table>
+				<th>Date</th>
+				<th>Round</th>
+				<th>Spectators</th>
+				<th>Home Team Id</th>
+				<th>Away Team Id</th>
+				<tr *ngFor="let game of games">
+					<td>{{ game.date }}</td>
+					<td>{{ game.roundId }}</td>
+					<td>{{ game.spectators}}</td>
+					<td>{{ game.homeTeamId}}</td>
+					<td>{{ game.awayTeamId}}</td>
+				</tr>
+			</table>
+		</div>
+	</ng-template>
+	-->
+
+
 <div *ngIf="games$ | async as games else noData">
-	<table>
-		<th>Date</th>
-		<th>Round</th>
-		<th>Spectators</th>
-		<tr *ngFor="let game of games">
-			<td>{{ game.date }}</td>
-			<td>{{ game.roundId }}</td>
-			<td>{{ game.spectators}}</td>
-		</tr>
-	</table>
+<table>
+	<th>Date</th>
+	<th>Round</th>
+	<th>Spectators</th>
+	<th>Home Team Id</th>
+	<th>Away Team Id</th>
+	<tr *ngFor="let game of games">
+		<td>{{ game.date }}</td>
+		<td>{{ game.roundId }}</td>
+		<td>{{ game.spectators}}</td>
+		<td>{{ game.homeTeamId}}</td>
+		<td>{{ game.awayTeamId}}</td>
+	</tr>
+</table>
 </div>
 

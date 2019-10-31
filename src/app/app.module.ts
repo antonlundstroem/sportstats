@@ -14,6 +14,8 @@ import { HeaderComponent } from './components/header/header.component';
 // This import and adding the stuff in 'providers' allows for refreshing without 404ing.
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
+import { AdminModule } from './admin/admin.module';
+import { AdminRoutingModule } from './admin/admin.routing';
 
 
 
@@ -29,7 +31,9 @@ import { FooterComponent } from './components/footer/footer.component';
 		HttpClientModule,
 		AppRoutingModule,
 		SportsModule,
-		SportsRoutingModule
+		SportsRoutingModule,
+		AdminModule,
+		AdminRoutingModule
   ],
 	providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
 	// {provide: LocationStrategy, useClass: HashLocationStrategy}]
