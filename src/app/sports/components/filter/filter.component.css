@@ -6,3 +6,32 @@
 .filterbutton {
 }
 
+/*
+.sportfiler {
+	position: inherit;
+}
+*/
+
+.buttons {
+  display: flex;
+  list-style: none;
+  /*padding: 20px 0;*/
+}
+
+@media all and (max-width:480px) {
+   .buttons {
+		 width: 100%;
+		 display: block;
+	 }
+}
+
+@media all and (orientation: landscape) {
+
+  .sportfiler {
+    /*max-width: 260px;*/
+		margin-top: 60px;
+		flex-direction: row;
+		/*align-content: flex-start;
+    overflow: hidden;*/
+  }
+}
